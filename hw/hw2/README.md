@@ -20,7 +20,9 @@
 
 # 4. Github Storage Block
 
-
+1. Add to repo directory `git_task` with `web_to_gcs.py`
+2. Create flow `4_read_from_repo.py` which task which loading directory from remote and subflow which run loaded flow
+3. Run this flow 
 
 # 5. Email or Slack notifications
 

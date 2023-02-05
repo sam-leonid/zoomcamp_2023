@@ -14,7 +14,7 @@ def git_clone(from_path:str,
                                local_path=local_path)
     return
 
-@task()
+@flow()
 def exec_clone_code(from_path:str,
                     file_name:str) -> None:
     from clone_repo.hw.hw2.git_task.web_to_gcs import etl_web_to_gcs
@@ -22,7 +22,7 @@ def exec_clone_code(from_path:str,
     
 
 @flow()
-def git_flow(from_path:str = "hw/hw2/4",
+def git_flow(from_path:str = "hw/hw2/git_task",
              local_path:str = "clone_repo",
              file_name:str = "4.py"):
     git_clone(from_path, local_path)
