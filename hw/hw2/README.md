@@ -36,8 +36,16 @@ prefect deployment apply git_flow-deployment.yaml
 
 3. Create Block GitHub
 4. Create Block Email
-5. Create Block GCS
-5. Add Automatition `send_email_success` for send email while Completed flow.
-6. Run flow `prefect agent start  --work-queue "git-flow"`
+5. Create Block GCS which have other type:
+```
+from prefect.filesystems import GCS
+gcs_block = GCS.load("zoom-gcs")
+gcs_block.put_directory(local_path=path, to_path=path)
+```
+
+6. Add Automatitions `send_email_success` for send email while Completed flow and `send_slack_success` for send mail to slack while Completed flow.
+7. Run flow `prefect agent start  --work-queue "git-flow"`
 
 # 6. Secrets
+
+Add secret and show number of symbols
