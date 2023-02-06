@@ -18,7 +18,7 @@ def git_clone(from_path:str,
 def exec_clone_code(from_path:str,
                     file_name:str) -> None:
     from clone_repo.hw.hw2.git_task.web_to_gcs import etl_web_to_gcs
-    etl_web_to_gcs()
+    etl_web_to_gcs(month=11, year=2020, color="green")
     
 
 @flow()

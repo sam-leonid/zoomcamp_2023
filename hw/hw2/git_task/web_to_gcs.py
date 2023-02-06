@@ -40,11 +40,8 @@ def etl_parent_flow(months: list = [1], year: int = 2020, color: str = "green"):
         etl_web_to_gcs(year, month, color)
 
 @flow()
-def etl_web_to_gcs() -> None:
+def etl_web_to_gcs(month: int = 11, year: int = 2020, color: str = "green") -> None:
     """The main ETL function"""
-    color = "green"
-    year = 2020
-    month = 11
     dataset_file = f"{color}_tripdata_{year}-{month:02}"
     dataset_url = f"https://github.com/DataTalksClub/nyc-tlc-data/releases/download/{color}/{dataset_file}.csv.gz"
 
