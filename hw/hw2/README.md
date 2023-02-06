@@ -15,7 +15,7 @@
 2. Run `prefect deployment build ./2.py:etl_main_flow -n "Parameterized ETL"`
 3. Change params in new file `etl_main_flow-deployment.yaml`
 4. Run `prefect deployment apply etl_main_flow-deployment.yaml`
-5. Run `prefect agent start  --work-queue "taxi_with_logs"`f
+5. Run `prefect agent start  --work-queue "taxi_with_logs"`
 6. After that in gui flows -> select task -> quick run
 
 # 4. Github Storage Block
@@ -25,5 +25,19 @@
 3. Run this flow 
 
 # 5. Email or Slack notifications
+
+
+1. Create account on prefect cloud and login with creating API key
+2. Add parametrization to flow `4_read_from_repo.py`.
+``` 
+prefect deployment build ./4_read_from_repo.py:git_flow -n "Parameterized gitflow"
+prefect deployment apply git_flow-deployment.yaml
+```
+
+3. Create Block GitHub
+4. Create Block Email
+5. Create Block GCS
+5. Add Automatition `send_email_success` for send email while Completed flow.
+6. Run flow `prefect agent start  --work-queue "git-flow"`
 
 # 6. Secrets
